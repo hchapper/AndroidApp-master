@@ -37,6 +37,8 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
 
+    implementation "com.android.support:support-core-utils:30.0.0"
+
 // Dependencies for working with Architecture components
 // You'll probably have to update the version numbers in build.gradle (Project)
 

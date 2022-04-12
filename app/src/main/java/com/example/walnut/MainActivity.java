@@ -20,11 +20,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "slam4";
     private CompetenceViewModel uneCompetenceViewModel;
     public static final int NEW_COMPETENCE_ACTIVITY_REQUEST_CODE = 1;
+    public static final int AFFICHE_MATIERE_ACTIVITY_REQUEST_CODE = 1;
 
     private RecyclerView recyclerView ;
     private ItemTouchHelper monHelper ;
@@ -46,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 int position_origin = origine.getAdapterPosition ();
                 int position_destination = destination.getAdapterPosition ();
                 adapter.moveItem (position_origin, position_destination);
-                    //adapter.notify ItemMoved (position_origin, position_destination);
+                //adapter.notify ItemMoved (position_origin, position_destination);
                 return true;
             }
 
@@ -67,6 +71,27 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (direction == ItemTouchHelper.RIGHT){
                     Toast.makeText(MainActivity.this, "Affichage éventuel du contenu de " + maCompetence.getNomCompetence(), Toast.LENGTH_LONG).show();
+
+
+                    Intent intent = new Intent(MainActivity.this, AfficheMatiereWebActivity.class);
+                    intent.putExtra(Intent.EXTRA_TEXT   , maCompetence.getNomCompetence());
+                    startActivityForResult(intent, AFFICHE_MATIERE_ACTIVITY_REQUEST_CODE);
+
+                    /*try
+                    {
+                        File f = new File("blox3.txt");
+                        FileInputStream fIS = new FileInputStream(f);
+                        System.out.println("file content: ");
+                        int r = 0;
+                        while((r = fIS.read())!=-1)
+                        {
+                            System.out.print((char)r);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }*/
 
                 }
             }
@@ -150,3 +175,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
+
+/*try {
+
+                    // Recevoir le fichier
+                    File f = new File("..contenuCompetence" + Competence.getNomCompetence());
+
+                    // Créer un nouveau fichier
+                    // Vérifier s'il n'existe pas
+                    if (f.createNewFile())
+                        System.out.println("File created");
+                    else
+                        System.out.println("File already exists");
+                }
+                catch (Exception e) {
+                    System.err.println(e);
+                }*/

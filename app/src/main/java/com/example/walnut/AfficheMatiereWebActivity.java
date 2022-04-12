@@ -14,13 +14,13 @@ public class AfficheMatiereWebActivity extends AppCompatActivity {
         setContentView (R.layout.activity_affiche_matiere_web);
 
         Intent intent = getIntent ();
-        String messageRecu = intent.getStringExtra(MainActivity.EXTRA_MESSAGE) ;
+        String messageRecu = intent.getStringExtra(Intent.EXTRA_TEXT) ;
         WebView affichageWeb = findViewById (R.id.navigateur);
 
 // if (messageRecu.equals IgnoreCase ("slam3")) // monDiffuseur.setText (this.getText (R.string.texte_sio));
 
-        if (messageRecu.equalsIgnoreCase ("slam4")){
-            affichageWeb.loadUrl ("file:///android_asset/OUI.html");
+        if (messageRecu.equalsIgnoreCase ("BLOC3")){
+            affichageWeb.loadUrl ("file:///android_asset/BLOC3.html");
 
         } else
             affichageWeb.loadUrl ("file:///android_asset/erreur.html");
