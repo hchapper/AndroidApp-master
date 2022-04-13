@@ -45,5 +45,6 @@ public class CompetenceRepository {
         CompetenceRoomDatabase.databaseWriteExecutor.execute(()-> {
             maCompetenceDao.update(uneCompetence);
         });
+
     }
 }

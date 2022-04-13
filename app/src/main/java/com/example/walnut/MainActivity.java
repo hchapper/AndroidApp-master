@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView ;
     private ItemTouchHelper monHelper ;
     public CompetenceListAdapter adapter;
+    //WebView affichageWeb = findViewById (R.id.navigateur);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         monHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback ( ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
 
@@ -76,22 +80,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, AfficheMatiereWebActivity.class);
                     intent.putExtra(Intent.EXTRA_TEXT   , maCompetence.getNomCompetence());
                     startActivityForResult(intent, AFFICHE_MATIERE_ACTIVITY_REQUEST_CODE);
-
-                    /*try
-                    {
-                        File f = new File("blox3.txt");
-                        FileInputStream fIS = new FileInputStream(f);
-                        System.out.println("file content: ");
-                        int r = 0;
-                        while((r = fIS.read())!=-1)
-                        {
-                            System.out.print((char)r);
-                        }
-                    }
-                    catch(Exception e)
-                    {
-                        e.printStackTrace();
-                    }*/
 
                 }
             }
@@ -136,10 +124,14 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
 
+        } else if(id == R.id.page2){
+            Toast.makeText(this,"On va ouvrir une autre page",Toast.LENGTH_SHORT).show();
+            //affichageWeb.loadUrl("file:///android_asset/BLOC2.html");
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     protected void onStart(){

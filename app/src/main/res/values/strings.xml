@@ -15,5 +15,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="supprime_tout">Supprimer Tout</string>
+    <string name="title_activity_page2">page2</string>
 
 </resources>

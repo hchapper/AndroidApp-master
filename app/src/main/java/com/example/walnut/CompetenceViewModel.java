@@ -35,4 +35,8 @@ public class CompetenceViewModel extends AndroidViewModel {
     public void supprime_Tout() {
         monRepository.deleteAll();
     }
+
+    public void newpage(){
+
+    }
 }

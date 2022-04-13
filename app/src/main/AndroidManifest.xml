@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.walnut">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Walnut">
-        <activity android:name=".AfficheMatiereWebActivity"></activity>
+        <activity android:name=".AfficheMatiereWebActivity" />
         <activity android:name=".NouvelleCompetence" />
         <activity
             android:name=".MainActivity"
@@ -22,7 +24,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

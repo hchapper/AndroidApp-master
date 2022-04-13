@@ -6,5 +6,16 @@
         android:id="@+id/supprime_toutes_competences"
         android:orderInCategory="100"
         android:title="@string/supprime_tout"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/page2"
+        android:orderInCategory="100"
+        android:title="page2"
+        app:showAsAction="never"
+        />
+
+
+
 </menu>

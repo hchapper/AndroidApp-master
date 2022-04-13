@@ -23,6 +23,9 @@ public interface CompetenceDao {
     @Query("SELECT * FROM competence_table ORDER BY nomCompetence ASC")
     LiveData<List<Competence>> getToutesCompetences();
 
+    @Query("SELECT COUNT(*) FROM competence_table")
+    int nbcpt();
+
     @Update
     void update(Competence competence);
 }
